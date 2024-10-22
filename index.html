@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption App (2048-bit)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    <h1>RSA Encryption App (2048-bit)</h1>
+    <div class="container">
+        <div id="home">
+            <button onclick="showSection('encrypt')">Encryption</button>
+            <button onclick="showSection('decrypt')">Decryption</button>
+        </div>
+        <div id="encrypt" class="hidden">
+            <h2>Encryption</h2>
+            <button onclick="generateKeys()">Generate Random Keys</button>
+            <h3>Public Key (X.509 Format)</h3>
+            <textarea id="publicKeyX509" readonly></textarea>
+            <h3>Public Key (PKCS8 Format)</h3>
+            <textarea id="publicKeyPKCS8" readonly></textarea>
+            <h3>Text to Encrypt</h3>
+            <textarea id="plaintext"></textarea>
+            <button onclick="encryptText()">Encrypt</button>
+            <h3>Encrypted Text</h3>
+            <textarea id="ciphertext" readonly></textarea>
+            <button onclick="showSection('home')">Back to Home</button>
+        </div>
+        <div id="decrypt" class="hidden">
+            <h2>Decryption</h2>
+            <h3>Public Key</h3>
+            <textarea id="decryptPublicKey"></textarea>
+            <h3>Private Key</h3>
+            <textarea id="privateKey"></textarea>
+            <h3>Encrypted Text</h3>
+            <textarea id="encryptedText"></textarea>
+            <button onclick="decryptText()">Decrypt</button>
+            <h3>Decrypted Text</h3>
+            <textarea id="decryptedText" readonly></textarea>
+            <button onclick="showSection('home')">Back to Home</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
